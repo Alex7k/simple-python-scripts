@@ -2,6 +2,4 @@
 
 This repository for practicing coding with simple python scripts
 
-If you have good ideas to help build intuition for python, please message me.
-
-A list of ideas to program can be found [here](./ideas.md)
+If you have that are good for building intuition with python, please message me or commit and PR to the [script ideas list](./ideas.md).
