@@ -33,15 +33,15 @@ printboard()
 player = "X"
 while True:
   for player in players:
-    input="undefined"
+    playerinput = "undefined"
     while True:
       try:
-        input = int(input(f"Spieler {player}, wo willst du setzen?: "))
-        if input > 9 or input < 1 or (board[input-1] in players):
+        playerinput = int(input(f"Spieler {player}, wo willst du setzen?: "))
+        if playerinput > 9 or playerinput < 1 or (board[playerinput-1] in players):
           print("Invalid position!")
           continue
         else:
-          board[input-1] = player
+          board[playerinput-1] = player
           break
       except ValueError:
         print("Please enter a valid number!")
