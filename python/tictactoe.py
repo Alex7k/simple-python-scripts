@@ -28,30 +28,31 @@ def checkdraw():
   return False
 
 
-printboard()
+if __name__ == "__main__":
+  printboard()
 
-player = "X"
-while True:
-  for player in players:
-    playerinput = "undefined"
-    while True:
-      try:
-        playerinput = int(input(f"Spieler {player}, wo willst du setzen?: "))
-        if playerinput > 9 or playerinput < 1 or (board[playerinput-1] in players):
-          print("Invalid position!")
+  player = "X"
+  while True:
+    for player in players:
+      playerinput = "undefined"
+      while True:
+        try:
+          playerinput = int(input(f"Spieler {player}, wo willst du setzen?: "))
+          if playerinput > 9 or playerinput < 1 or (board[playerinput-1] in players):
+            print("Invalid position!")
+            continue
+          else:
+            board[playerinput-1] = player
+            break
+        except ValueError:
+          print("Please enter a valid number!")
           continue
-        else:
-          board[playerinput-1] = player
-          break
-      except ValueError:
-        print("Please enter a valid number!")
-        continue
 
-    printboard()
+      printboard()
 
-    if checkwin(player):
-      print(f"{player} wins!")
-      exit()
-    if checkdraw():
-      print("Draw!")
-      exit()
+      if checkwin(player):
+        print(f"{player} wins!")
+        exit()
+      if checkdraw():
+        print("Draw!")
+        exit()
