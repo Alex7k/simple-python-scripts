@@ -8,7 +8,7 @@ leaderboard = []
 for startingnumber in range(1, samples):
   # measure how many steps to end up in the 4, 2, 1 loop
   step = 0
-  highestnumber = 1
+  highestnumber = startingnumber
   number = startingnumber
   while True:
     step += 1
