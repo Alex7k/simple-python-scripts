@@ -9,8 +9,8 @@ bombs = int(rows*cols*bombDensity)
 # bombs = int(math.sqrt(rows*cols))
 ################
 
-field = [["_" for x in range(cols)] for y in range(rows)]
-bombmap = [["_" for x in range(cols)] for y in range(rows)]
+field = [["-" for x in range(cols)] for y in range(rows)]
+bombmap = [["-" for x in range(cols)] for y in range(rows)]
 
 def fillBombs():
   while sum(row.count("*") for row in bombmap) < bombs:
@@ -48,7 +48,7 @@ def countSurroundingBombs(row,col):
     return str(count)
 
 def flag(row,col):
-  if field[row][col] == "_":
+  if field[row][col] == "-":
     field[row][col] = "F"
 
 def uncover(row,col):
@@ -56,7 +56,7 @@ def uncover(row,col):
     stack = [(row,col)]
     while stack:
         r, c = stack.pop()
-        if field[r][c] != "_":
+        if field[r][c] != "-":
             continue
         if bombmap[r][c] == "*":
             return True  # BOMB UNCOVERED
@@ -64,7 +64,7 @@ def uncover(row,col):
         field[r][c] = surroundingBombs
         if surroundingBombs == " ":
             for nr, nc in getSurrounding(r, c):
-                if field[nr][nc] == "_":
+                if field[nr][nc] == "-":
                     stack.append((nr, nc))
     return False
 
@@ -110,7 +110,7 @@ while True:
     try:
       chosenCol = int(input("Choose a column:"))-1
       chosenRow = int(input("Choose a row:"))-1
-      if field[chosenRow][chosenCol] in ["_","F"]:
+      if field[chosenRow][chosenCol] in ["-","F"]:
         break
       else:
         raise
