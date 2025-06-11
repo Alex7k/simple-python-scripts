@@ -1,9 +1,11 @@
+# Console Minesweeper with board size and bomb rate adjustment support
+
 import random
 import math
 
 ### VARIABLES
-rows = 13
-cols = 13
+rows = 10
+cols = 10
 bombDensity = 0.1
 bombs = int(rows*cols*bombDensity)
 # bombs = int(math.sqrt(rows*cols))
@@ -103,8 +105,16 @@ def printField(showBombs=False):
       readableRow += fieldDisplay[row][col] + getSpaces(maxDigitsCol,"")
     print(readableRow)
 
+def checkWin():
+  for row in range(rows):
+    for col in range(cols):
+      if str(field[row][col]) == "-":
+        return False
+  return True
+
 printField(False)
 
+moveCounter = 0
 while True:
   while True:
     try:
@@ -135,3 +145,7 @@ while True:
     else:
       printField(False)
       print("Phew. No bomb.")
+  moveCounter += 1
+  if checkWin():
+    print(f"You win! Tries: {moveCounter}. Configuration: {rows} x {cols} with a bomb density of {bombDensity} ({bombs} bombs).")
+    exit()
