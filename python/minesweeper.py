@@ -2,10 +2,10 @@ import random
 import math
 
 ### VARIABLES
-rows = 50
-cols = 50
-bombrate = 0.1
-bombs = int(rows*cols*bombrate)
+rows = 13
+cols = 13
+bombDensity = 0.1
+bombs = int(rows*cols*bombDensity)
 # bombs = int(math.sqrt(rows*cols))
 ################
 
