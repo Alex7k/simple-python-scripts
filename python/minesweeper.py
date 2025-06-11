@@ -26,14 +26,12 @@ def getSpaces(max, text):
     spaces += ' '
   return spaces
 
-def getSurroundingUntouched(row,col):
+def getSurrounding(row,col):
   surrounding = []
   for colOffset in [-1,0,1]:
     for rowOffset in [-1,0,1]:
       newRow = row+rowOffset
       newCol = col+colOffset
-      if field[newRow][newCol] != "_":
-        continue
       if colOffset==rowOffset==0 or 0 > newRow or 0 > newCol or newRow >= rows or newCol >= cols: # prevent 0 0 offset and out of bounds bomb checks
         continue
       surrounding.append([newRow,newCol])
@@ -41,9 +39,9 @@ def getSurroundingUntouched(row,col):
 
 def countSurroundingBombs(row,col):
   count = 0
-  for i in getSurroundingUntouched(row,col):
-      if bombmap[i[0]][i[1]] == "*":
-        count += 1
+  for i in getSurrounding(row,col):
+    if bombmap[i[0]][i[1]] == "*":
+      count += 1
   if count == 0:
     return " "
   else:
@@ -54,24 +52,32 @@ def flag(row,col):
     field[row][col] = "F"
 
 def uncover(row,col):
-  # Prevent recursion on already uncovered cells
-  if field[row][col] != "_":
+    # Iterative flood fill to avoid recursion limit
+    stack = [(row,col)]
+    while stack:
+        r, c = stack.pop()
+        if field[r][c] != "_":
+            continue
+        if bombmap[r][c] == "*":
+            return True  # BOMB UNCOVERED
+        surroundingBombs = countSurroundingBombs(r, c)
+        field[r][c] = surroundingBombs
+        if surroundingBombs == " ":
+            for nr, nc in getSurrounding(r, c):
+                if field[nr][nc] == "_":
+                    stack.append((nr, nc))
     return False
-  if bombmap[row][col] == "_":
-    bombmap[row][col] = "X"
-    surroundingBombs = countSurroundingBombs(row,col)
-    field[row][col] = surroundingBombs
-    if surroundingBombs == " ":
-      for i in getSurroundingUntouched(row,col):
-        uncover(i[0],i[1])
-    # NO BOMB
-    return False
-  elif bombmap[row][col] == "*":
-    # BOMB UNCOVERED
-    return True
 
-def printField(show_bombs=False):
-  targetField = bombmap if show_bombs else field
+def printField(showBombs=False):
+  if showBombs:
+    # Deep copy of field
+    fieldDisplay = [row[:] for row in field]
+    for row in range(rows):
+      for col in range(cols):
+        if bombmap[row][col] == "*":
+          fieldDisplay[row][col] = "*"
+  else:
+    fieldDisplay = field
 
   maxDigitsRow = 0
   for row in range(rows):
@@ -94,7 +100,7 @@ def printField(show_bombs=False):
     # print(indentAmount)
     readableRow = str(row+1)+indent
     for col in range(cols):
-      readableRow += targetField[row][col] + getSpaces(maxDigitsCol,"")
+      readableRow += fieldDisplay[row][col] + getSpaces(maxDigitsCol,"")
     print(readableRow)
 
 printField(False)
@@ -119,8 +125,6 @@ while True:
       continue
   if action == "f":
       field[chosenRow][chosenCol] = "F"
-      if bombmap[chosenRow][chosenCol] != "*":
-        bombmap[chosenRow][chosenCol] = "F"
       printField(False)
       print("Flagged.")
   if action == "x":
