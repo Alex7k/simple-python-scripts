@@ -2,11 +2,11 @@ import random
 import math
 
 ### VARIABLES
-rows = 10
-cols = 10
-# bombrate = 0.1
-# bombs = int(rows*cols*bombrate)
-bombs = int(math.sqrt(rows*cols))
+rows = 50
+cols = 50
+bombrate = 0.1
+bombs = int(rows*cols*bombrate)
+# bombs = int(math.sqrt(rows*cols))
 ################
 
 field = [["_" for x in range(cols)] for y in range(rows)]
