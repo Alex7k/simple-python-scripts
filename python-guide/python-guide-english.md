@@ -75,7 +75,15 @@ Operators:
 
 ```python
 c = a + b # c will be 15 because 5 + 10 = 15
+c = a * b # c will be 50 because 5 * 10 = 50
 a = a + 1 # a is increased by 1, so a = 6
+```
+
+Modulo operator returns the remainder of a division:
+
+```python
+10 % 2 # Returns 0. When you divide 10 by 2, the remainder is 0.
+23 % 2 # Returns 1. 23 / 2 is 11 with remainder 1.
 ```
 
 ---
@@ -190,12 +198,27 @@ fruits.append(new_fruit) # Adds 'Orange' to the array 'fruits'
 # ["Apple", "Banana", "Cherry", "Orange"]
 ```
 
+Convert a string to an array (list):
+
+```python
+text = "Apple"
+text_array = list(text)
+# text_array -> ['A', 'p', 'p', 'l', 'e']
+```
+
 To do something, for example, 10 times:
 
 ```python
 for i in range(10):
-    # ...
+    print(i) # Prints the numbers from 0 to 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 # 'range(10)' would create an array with the values 0 to 9 ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).
+```
+
+Count entries in an array:
+
+```python
+fruits = ["Apple", "Banana", "Cherry"]
+number_of_fruits = len(fruits) # Returns the number of entries in the array 'fruits' (3 in this case)
 ```
 
 ---
@@ -228,7 +251,6 @@ def greeting(name): # Function with one parameter 'name'
 name = input("What is your name?: ")
 greeting(name) # Calls the function 'greeting' with the parameter 'name'
 
-# ---
 def sum_numbers(number_one, number_two): # Function with 2 parameters 'number_one' and 'number_two'
     return number_one + number_two # Returns the sum of number_one and number_two
 
