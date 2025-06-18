@@ -75,7 +75,15 @@ Operatoren:
 
 ```python
 c = a + b # c wird 15 sein, weil 5 + 10 = 15
+c = a * b # c wird 50 sein, weil 5 * 10 = 50
 a = a + 1 # a wird um 1 erhöht, also a = 6
+```
+
+Modulo-Operator gibt den Rest einer Division zurück:
+
+```python
+10 % 2 # Gibt 0 zurück. Wenn man 10 durch 2 teilt, ist der Rest 0.
+23 % 2 # Gibt 1 zurück. 23 / 2 ergibt 11 mit Rest 1.
 ```
 
 ---
@@ -190,12 +198,27 @@ fruits.append(new_fruit) # Fügt 'Orange' zum Array 'fruits' hinzu
 # ["Apfel", "Banane", "Kirsche", "Orange"]
 ```
 
+String in einen Array (List) umwandeln:
+
+```python
+text = "Apfel"
+text_array = list(text)
+# text_array -> ['A', 'p', 'f', 'e', 'l']
+```
+
 Um etwas zum Beispiel 10 mal zu machen:
 
 ```python
 for i in range(10):
-    # ...
+    print(i) # Gibt die Zahlen von 0 bis 9 aus (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
 # 'range(10)' würde einen Array mit den Werten 0 bis 9 erstellen ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).
+```
+
+Einträge in einem Array zählen:
+
+```python
+fruits = ["Apfel", "Banane", "Kirsche"]
+anzahl_fruits = len(fruits) # Gibt die Anzahl der Einträge im Array 'fruits' zurück (3 in diesem Fall)
 ```
 
 ---
@@ -228,7 +251,6 @@ def begruessung(name): # Funktion mit einem Parameter 'name'
 name = input("Wie heisst du?: ")
 begruessung(name) # Ruft die Funktion 'begruessung' mit dem Parameter 'name' auf
 
-# ---
 def summe(zahl_eins, zahl_zwei): # Funktion mit 2 Parametern 'zahl_eins' und 'zahl_zwei'
     return zahl_eins + zahl_zwei # Gibt die Summe von zahl_eins und zahl_zwei zurück
 

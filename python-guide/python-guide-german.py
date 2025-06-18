@@ -49,7 +49,12 @@ name = "Alex" # String (Text), muss "" oder '' haben
 # %  Modulo (Rest bei Division)
 
 c = a + b # c wird 15 sein, weil 5 + 10 = 15
+c = a * b # c wird 50 sein, weil 5 * 10 = 50
 a = a + 1 # a wird um 1 erhöht, also a = 6
+
+# Modulo operand gibt den Rest einer Division zurück:
+10 % 2 # Gibt 0 zurück. Wenn man 10 durch 2 teilt, ist der Rest *0*.
+23 % 2 # Gibt 1 zurück. 23 / 2 ergibt 11 mit Rest *1*.
 
 # ---------------- Konsole aus-/eingabe
 
@@ -121,12 +126,20 @@ new_fruit = "Orange"
 fruits.append(new_fruit) # Fügt 'Orange' zum Array 'fruits' hinzu
 # ["Apfel", "Banane", "Kirsche", "Orange"]
 
+# String in einen Array (List) umwandeln:
+text = "Apfel"
+text_array = list(text)
+# text_array -> ['A', 'p', 'f', 'e', 'l']
 
 
 # um etwas zum beispiel 10 mal zu machen:
-for i in range(10):
-    #...
 # 'range(10)' würde einen Array mit den Werten 0 bis 9 erstellen ([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]).
+for i in range(10):
+    print(i) # Gibt die Zahlen von 0 bis 9 aus (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+
+# Einträge in einem Array zählen:
+fruits = ["Apfel", "Banane", "Kirsche"]
+anzahl_fruits = len(fruits) # Gibt die Anzahl der Einträge im Array 'fruits' zurück (3 in diesem Fall)
 
 # ---------------- module
 
