@@ -107,7 +107,7 @@ name = input("Wie heisst du?: ")
 
 ## if-else (Bedingungen)
 
-Es schaut zuerst die Bedingung von `if` an, wenn die Bedingung wahr ist, wird der Codeblock darunter ausgeführt, wenn nicht, wird die nächste `elif` Bedingung geprüft, und wenn keine der Bedingungen wahr ist, wird der `else` Block ausgeführt.
+*Es schaut zuerst die Bedingung von `if` an, wenn die Bedingung wahr ist, wird der Codeblock darunter ausgeführt, wenn nicht, wird die nächste `elif` Bedingung geprüft, und wenn keine der Bedingungen wahr ist, wird der `else` Block ausgeführt.*
 
 Man muss immer Tab drücken, um einzurücken.
 
@@ -117,7 +117,7 @@ if a < b: # Wenn a kleiner als b ist
 elif a == b: # Wenn a gleich b ist
     print("a ist gleich b")
 else: # Wenn keine der vorherigen Bedingungen zutrifft
-    print("a ist größer als b")
+    print("a ist grösser als b")
 ```
 
 ---
