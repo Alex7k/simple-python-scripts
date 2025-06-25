@@ -2,8 +2,9 @@
 
 - 18+ checker by age (condition)
 - Calculator (Choose +-*/, calculate with 2 user-defined numbers)
-- Random Number Guessing game ("Guess a number:", "Too high!", "Too low!", "You win!")
 - Collatz Conjecture
+- Random password generator
+- Random Number Guessing game ("Guess a number:", "Too high!", "Too low!", "You win!")
 - Password Generator
 - Prime Number checker
 - Fibonacci Sequence
