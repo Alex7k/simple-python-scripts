@@ -2,7 +2,7 @@
 
 ## - Parameters -
 
-word = "hello".lower()
+word = "Hello, world!".lower()
 shift = 6
 
 ## --
@@ -15,7 +15,7 @@ def cipher(letter,shift):
   for i in range(len(alphabet)):
     if letter == alphabet[i]:
       return alphabet[(i+shift) % len(alphabet)]
-  print("Not all symbols included in alphabet! Aborting...")
+  return letter # letter not in alphabet, leave unchanged
   exit()
 
 newWord = ""
