@@ -1,5 +1,7 @@
 import pygame
 
+pygame.init()
+
 # #### UNFINISHED 2025-06-25
 
 # # - Parameters -
