@@ -6,38 +6,34 @@ board = [
 players = ["X", "O"]
 
 def printboard():
-  print("--|---|--")
   for i in range(3):
     print(f"{board[0+i*3]} | {board[1+i*3]} | {board[2+i*3]} ")
-    print("--|---|--")
+    if i < 2: # avoid printing line after last row
+      print("--|---|--")
 
 def checkwin(player):
   for row in range(3):
-    if board[0+row*3] == board[1+row*3] == board[2+row*3] == player:
+    if all(board[row*3 + col] == player for col in range(3)):
       return True
   for col in range(3):
-    if all(board[col+row*3] == player for row in range(3)):
+    if all(board[row*3 + col] == player for row in range(3)):
       return True
   if board[0] == board[4] == board[8] == player or board[2] == board[4] == board[6] == player:
     return True
   return False
 
 def checkdraw():
-  if all(board[i] in players for i in range(9)):
-    return True
-  return False
-
+  return all(board[i] in players for i in range(9))
 
 printboard()
 
-player = "X"
 while True:
   for player in players:
     playerinput = "undefined"
     while True:
       try:
-        playerinput = int(input(f"Spieler {player}, wo willst du setzen?: "))
-        if playerinput > 9 or playerinput < 1 or (board[playerinput-1] in players):
+        playerinput = int(input(f"Player {player}, select a position (1-9): "))
+        if not (1 <= playerinput <= 9) or board[playerinput-1] in players:
           print("Invalid position!")
           continue
         else:
