@@ -1,7 +1,9 @@
-# Simple Python Scripts
+# Python Guide
 
-This repository is for practicing coding with simple scripts
+This repository aims to guide you in learning the Python programming language!
 
-I created this repository as a learning aid for the people I teach python to.
+I created this repository as a tool to better teach python.
 
-If you have ideas that are good for building intuition with python, please message me or commit and PR to the [script ideas list](./ideas.md).
+See [the guide](https://github.com/Alex7k/simple-python-scripts/tree/main/python-guide)
+
+If you have any script ideas that are good for building intuition with python, please [message me](https://alex7k.com/) or edit [the script ideas list](./ideas.md) in a PR.
